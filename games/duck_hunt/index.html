@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio id="shootSound" src="./videoplayback_2.m4a"></audio>
+
+  <div id="menu">
+    <h1 style="margin-bottom: 3%;">Duck hunt!</h1>
+    <input type="text" placeholder="username.." id="usn">
+    <button id="leaderboardbtn">Leaderboard</button>
+    <select name="difficulty" id="difficulty">
+      <option value="ez">easy</option>
+      <option value="med">medium</option>
+      <option value="hard">hard</option>
+    </select>
+    <button id="startbtn">Start game</button>
+  </div>
+
+  <div id="pauseWindow">
+    <h1>Game Paused</h1>
+    <button id="resumebtn">Resume</button>
+    <button id="backtomenubtn3">Back to menu</button>
+    <button id="resetbtn">Restart</button>
+  </div>
+
+  <div id="game">
+  <canvas id="canvas">
+   
+  </canvas>
+  <div id="info">
+  <p>Score: <span id="score">0</span></p>
+  <p>Life: <span id="life">3</span></p>
+  </div>
+  </div>
+
+  <div id="gameover">
+    <h1>Game Over!</h1>
+    <button id="leaderboardbtn2">Leaderboard</button>
+    <button id="backtomenubtn">Back to menu</button>
+    <button id="restartbtn">Restart</button>
+  </div>
+
+  <div id="leaderboard">
+    <h1>Leaderboard</h1>
+    <table id="leaderboardTable">
+      <tr>
+        <th>Rank</th>
+        <th>Username</th>
+        <th>Score</th>
+      </tr>
+    </table>
+    <button id="backtomenubtn2">Back to menu</button>
+  </div>
+
+  <script src="menu.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

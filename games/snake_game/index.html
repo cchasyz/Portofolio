@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="menu" id="menu">
+    <h1>Snake game</h1>
+    <form action="" >
+      <label for="">Enter your username</label>
+      <input type="text" id="getName" required>
+    </form>
+    <button type="submit" id="startbtn">Start</button>
+    <select name="" id="level">
+      <option value="ez">easy</option>
+      <option value="med">medium</option>
+      <option value="hard">hard</option>
+    </select>
+    <button id="leaderboardbtn">Leaderboard</button>
+  </div>
+
+  <div id="Leaderboardview">
+    
+  </div>
+  
+  <canvas id="canvas" width="750" height="500"></canvas>
+  
+  <div id="score">0</div>
+  <div>
+  <button id="resetbtn">Reset</button>
+  <button id="getmenu">Menu</button>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

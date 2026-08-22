@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhackAMole Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="leaderboard">
+    <h1>Leaderboard</h1>
+    <table id="leaderboardTable">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button id="menubtn">Menu</button>
+  </div>
+
+  <div id="tutorial">
+    <h1>How to Play</h1>
+    <p>Click on the mole as fast as you can to score points.</p>
+    <p>You have 30 seconds to score as many points as you can.</p>
+    <p>If you miss a mole, you lose a life.</p>
+    <p>Good luck!</p>
+    <button id="menubtn2">Go to Menu</button>
+  </div>
+
+  <div id="menu">
+    <img src="6289336464160441628-removebg-preview (1).png" style="width: 140px; margin-bottom: 10px;">
+    <h1 style="margin: 0 0 15px 0;">Whack A Mole</h1>
+    <input type="text" id="usninput" placeholder="Enter username..." value="Hasan" style="padding: 8px 16px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 15px; text-align: center;">
+    <div style="display: flex; flex-direction: column; gap: 10px; width: 220px;">
+      <button id="startbtn" style="font-size: 20px; font-weight: bold; background-color: #16a34a;">Start Game</button>
+      <button id="tutorialbtn" style="font-size: 16px;">How to Play</button>
+      <button id="leaderboardbtn" style="font-size: 16px;">Leaderboard</button>
+    </div>
+  </div>
+
+  <div id="game">
+    <div class="info">
+      <p>Score: <span id="score">0</span></p>
+      <p>Timer: <span id="timer">30</span></p>
+      <p>Life: <span id="life">5</span></p>
+    </div>
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="menu.js"></script>
+</body>
+</html>

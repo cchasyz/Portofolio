@@ -1,0 +1,71 @@
+body{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+.info{
+  position: absolute;
+  font-size: xx-large;
+  top: 3%;
+  left: 3%;
+  background-color: green;
+  color: white;
+  padding: 0 25px;
+}
+button{
+  font-size: xx-large;
+  background-color: green;
+  border: 2px solid white;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+button:hover{
+  background-color: white;
+  color: green;
+  border-color: brown;
+  transition: 500ms;
+}
+#game{
+  display: none;
+}
+#menu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#tutorial{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: brown;
+  color: white;
+  padding: 2% 10%;
+}
+#canvas{
+  cursor: none;
+}
+#leaderboard{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+table, tr, th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-bottom: 10%;
+  padding: 5px 20px;
+  font-size: 15px;
+}
