@@ -1,136 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <title>Hasan — Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hasan — Full Stack Developer & Software Engineer</title>
+  
+  <meta name="description" content="Minimalist Dark Red Portfolio of Hasan — Full Stack Software Engineer, Hackathon Champion & IoT Enthusiast." />
+  <meta name="theme-color" content="#000000" />
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Optional font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --color-1: #213448;
-      --color-2: #547792;
-      --color-3: #94B4C1;
-      --color-4: #EAE0CF;
-      /* --color-primary: #2563eb; */
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#000000',
+              dark: '#0a0404',
+              surface: '#120707',
+              border: '#260d0d',
+              red: '#dc2626',
+              brightRed: '#ef4444',
+              crimson: '#991b1b',
+              darkRed: '#450a0a'
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            mono: ['Fira Code', 'monospace'],
+            body: ['Space Grotesk', 'sans-serif']
+          }
+        }
+      }
     }
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-  </style>
+  </script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
-<body class="bg-[var(--color-2)] text-[var(--color-4)]">
-
-  <!-- Navbar -->
-  <header class="sticky top-0 bg-[var(--color-1)] border-b z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-lg font-semibold">Hasan</h1>
-      <nav class="space-x-6 text-sm font-medium">
-        <a href="#about" class="hover:text-black">About</a>
-        <a href="#skills" class="hover:text-black">Skills</a>
-        <a href="#projects" class="hover:text-black">Projects</a>
-        <a href="#contact" class="hover:text-black">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="max-w-6xl mx-auto px-6 py-24">
-    <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
-      Web Developer &<br />
-      Software Engineer
-    </h2>
-    <p class="text-gray-600 max-w-xl mb-8">
-      I build clean, scalable web applications with modern technologies.
-      Passionate about backend systems, UI, and problem solving.
-    </p>
-    <a href="#projects"
-       class="inline-block bg-black text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition">
-      View My Work
-    </a>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="bg-white py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-2xl font-semibold mb-6">About Me</h3>
-      <p class="text-gray-600 max-w-3xl leading-relaxed">
-        I am a student developer focused on full-stack web development.
-        I enjoy working with Laravel, Go, JavaScript, and modern frontend tools.
-        Currently preparing for competitions and pursuing opportunities in IT and engineering.
-      </p>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-2xl font-semibold mb-10">Skills</h3>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="bg-white p-6 rounded-xl shadow-sm">HTML / CSS</div>
-        <div class="bg-white p-6 rounded-xl shadow-sm">JavaScript</div>
-        <div class="bg-white p-6 rounded-xl shadow-sm">Laravel / PHP</div>
-        <div class="bg-white p-6 rounded-xl shadow-sm">Go (Golang)</div>
-        <div class="bg-white p-6 rounded-xl shadow-sm">REST APIs</div>
-        <div class="bg-white p-6 rounded-xl shadow-sm">MySQL / PostgreSQL</div>
-        <div class="bg-white p-6 rounded-xl shadow-sm">Git & GitHub</div>
-        <div class="bg-white p-6 rounded-xl shadow-sm">Linux / VPS</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="bg-white py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-2xl font-semibold mb-10">Projects</h3>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="border rounded-xl p-6 hover:shadow-md transition">
-          <h4 class="font-semibold text-lg mb-2">PintarMenabung</h4>
-          <p class="text-gray-600 text-sm mb-4">
-            Full-stack financial app built with Laravel, Sanctum authentication, and REST APIs.
-          </p>
-          <span class="text-xs text-gray-500">Laravel · MySQL · API</span>
-        </div>
-
-        <div class="border rounded-xl p-6 hover:shadow-md transition">
-          <h4 class="font-semibold text-lg mb-2">Chess Game</h4>
-          <p class="text-gray-600 text-sm mb-4">
-            JavaScript chess game using canvas with check and checkmate logic.
-          </p>
-          <span class="text-xs text-gray-500">JavaScript · Canvas</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-2xl font-semibold mb-6">Contact</h3>
-      <p class="text-gray-600 mb-8">
-        Feel free to reach out for collaboration or opportunities.
-      </p>
-
-      <div class="space-y-3 text-sm">
-        <p>Email: <span class="font-medium">your@email.com</span></p>
-        <p>GitHub: <span class="font-medium">github.com/yourusername</span></p>
-        <p>LinkedIn: <span class="font-medium">linkedin.com/in/yourusername</span></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t py-6 text-center text-sm text-gray-500">
-    © 2026 Hasan. All rights reserved.
-  </footer>
-
+<body class="bg-black text-zinc-100 overflow-x-hidden selection:bg-red-600 selection:text-white">
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

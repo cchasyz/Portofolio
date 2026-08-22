@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>riding rockets pizza</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      width: 100%;
+      margin: 0;
+      background-image: url('MEDIA/Background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    #game{
+      display: none;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    #canvas {
+      max-width: 100vw;
+      max-height: 100vh;
+      object-fit: contain;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+    #menu{
+      background-color: darkblue;
+      color: white; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 3rem;
+      border-radius: 20px;
+      gap: 0.8rem;
+      max-width: 90vw;
+      box-shadow: 0 0 25px rgba(0,0,0,0.8);
+    }
+    #menu #nameinput {
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #fff;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 250px;
+    }
+    #menu #playbtn{
+      margin-top: 0.5rem;
+      width: 100%;
+      max-width: 250px;
+      font-weight: bold;
+    }
+    #menu button{
+      cursor: pointer;
+      width: 100%;
+      max-width: 250px;
+      background-color: aqua;
+      padding: 8px 0;
+      border: 1px solid white;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    #menu button:disabled{
+      background-color: gray;
+      color: rgba(255, 255, 255, 0.763);
+      cursor: not-allowed;
+    }
+    #menu button:hover {
+      background-color: #00008b;
+      color: white;
+      transition: 200ms;
+    }
+    #score{
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 0 0 8px #000;
+      z-index: 10;
+    }
+    #gameover{
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background-color: darkblue;
+      color: white;
+      padding: 2rem 3rem;
+      border-radius: 20px;
+      max-width: 90vw;
+      box-shadow: 0 0 25px rgba(0,0,0,0.8);
+    }
+    #gameover button {
+      cursor: pointer;
+      background-color: aqua;
+      padding: 8px 0;
+      margin: 0 0 0.6rem;
+      border: 1px solid white;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 220px;
+      font-weight: bold;
+    }
+    #gameover button:hover {
+      background-color: #00008b;
+      color: white;
+      transition: 200ms;
+    }
+    #instructionsView{
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background-color: darkblue;
+      color: white;
+      padding: 2rem 3rem;
+      border-radius: 20px;
+      max-width: 90vw;
+      box-shadow: 0 0 25px rgba(0,0,0,0.8);
+    }
+    #instructionsView button{
+      cursor: pointer;
+      background-color: aqua;
+      padding: 8px 0;
+      margin: 1rem 0 0.5rem;
+      border: 1px solid white;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 220px;
+      font-weight: bold;
+    }
+    #instructionsView button:hover{
+      background-color: #00008b;
+      color: white;
+      transition: 200ms;
+    }
+    #leaderboardView{
+      display: none;
+      flex-direction: column;
+      background-color: darkblue;
+      color: white;
+      padding: 2rem 3rem;
+      text-align: center;
+      border-radius: 20px;
+      max-width: 90vw;
+      box-shadow: 0 0 25px rgba(0,0,0,0.8);
+    }
+    #leaderboardView table {
+      width: 100%;
+      margin: 1rem 0;
+      border-collapse: collapse;
+    }
+    #leaderboardView th, #leaderboardView td {
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    #leaderboardView button{
+      margin-top: 1rem;
+      cursor: pointer;
+      background-color: aqua;
+      padding: 8px 0;
+      border: 1px solid white;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 220px;
+      font-weight: bold;
+    }
+    #leaderboardView button:hover {
+      background-color: #00008b;
+      color: white;
+      transition: 200ms;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="leaderboardView">
+    <h1>Leaderboard</h1>
+    <table id="leaderboardtable">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Highscore</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button id="menubtnleaderboard">GO TO MENU</button>
+  </div>
+
+  <div id="menu">
+    <h1>RIDING ROCKETS</h1>
+    <input type="text" id="nameinput" placeholder="Enter username..." value="Hasan">
+    <button id="playbtn">PLAY GAME</button>
+    <button id="instructionsbtn">INSTRUCTIONS</button>
+    <button id="leaderboardbtn">LEADERBOARD</button>
+  </div>
+
+  <div id="game">
+    <canvas id="canvas"></canvas>
+    <div id="score">0</div>
+  </div>
+
+  <div id="instructionsView">
+    <h1>Instructions</h1>
+    <p>1. Move rocket with W A S D or Arrow Keys.</p>
+    <p>2. Shoot all the space pizzas.</p>
+    <p>3. Don't get hit by pizzas.</p>
+    <p>4. Don't let pizzas pass your screen.</p>
+    <p>5. Enjoy!</p>
+    <button id="menubtninstructions">BACK TO MENU</button>
+  </div>
+
+  <div id="gameover">
+    <h1>GAME OVER!</h1>
+    <p>Player: <span id="nametextgameover"></span></p>
+    <p>Score: <span id="scoretextgameover"></span></p>
+    <button id="restartbtngameover">RESTART</button>
+    <button id="menubtngameover">GO TO MENU</button>
+    <button id="savebtngameover">SAVE SCORE</button>
+  </div>
+
+  <script src="menu.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

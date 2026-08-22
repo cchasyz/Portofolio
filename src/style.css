@@ -1,0 +1,134 @@
+/* Minimal Dark Red & Pitch Black Design System */
+:root {
+  --bg-dark: #000000;
+  --bg-surface: #0a0404;
+  --border-subtle: #260d0d;
+  --border-hover: #450a0a;
+  --accent-red: #dc2626;
+  --accent-bright: #ef4444;
+}
+
+html {
+  background-color: #000000;
+  color: #f4f4f5;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  background: #000000;
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* Crimson Precision Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #450a0a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+/* Dark Fine Grid */
+.fine-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(220, 38, 38, 0.08) 0%, transparent 70%),
+    linear-gradient(to right, rgba(220, 38, 38, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(220, 38, 38, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Minimalist Editorial Card */
+.editorial-card {
+  background: #0a0404;
+  border: 1px solid #260d0d;
+  border-radius: 1rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.editorial-card:hover {
+  border-color: rgba(220, 38, 38, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px -10px rgba(220, 38, 38, 0.25);
+}
+
+/* Red Minimal Buttons */
+.btn-editorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 9999px;
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.35);
+}
+.btn-editorial:hover {
+  background: #ef4444;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(239, 68, 68, 0.5);
+}
+
+.btn-editorial-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid #450a0a;
+  color: #f4f4f5;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-editorial-outline:hover {
+  border-color: #dc2626;
+  color: #ef4444;
+  background: rgba(220, 38, 38, 0.08);
+}
+
+.custom-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Section Tag Header */
+.section-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: #ef4444;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
