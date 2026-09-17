@@ -151,7 +151,7 @@
               </div>
               <div>
                 <div class="text-sm font-bold text-white font-heading leading-tight drop-shadow">HASAN</div>
-                <div class="text-[10px] font-mono text-red-400">Software Engineer & IoT</div>
+                <div class="text-[10px] font-mono text-red-400">Software Engineer</div>
               </div>
             </div>
           </div>
@@ -202,7 +202,7 @@ onMounted(() => {
 })
 
 // Typing effect
-const titles = ['Full Stack Software Engineer', 'IoT Hardware Innovator', 'Hackathon Winner', 'Vue & Go Developer']
+const titles = ['Full Stack Software Engineer', 'IoT Enthusiast', 'Hackathon Winner', 'Vue & Go Developer']
 const typedText = ref('')
 let titleIndex = 0, charIndex = 0, isDeleting = false, typingTimeout = null
 
