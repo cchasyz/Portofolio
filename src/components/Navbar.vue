@@ -41,9 +41,14 @@
         <button @click="$emit('open-game')" class="px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-zinc-950 border border-brand-border hover:border-red-600 text-red-500 flex items-center gap-1.5 transition-all">
           <Gamepad2 class="w-3.5 h-3.5" /> Play Game
         </button>
-        <button @click="$emit('open-asset-modal')" class="px-3.5 py-1.5 rounded-full text-xs font-mono text-zinc-400 hover:text-white bg-zinc-950 border border-brand-border flex items-center gap-1.5 transition-all">
-          <ImageIcon class="w-3.5 h-3.5" /> Asset Specs
-        </button>
+        <a 
+          href="assets/hasan_cv.pdf" 
+          download="Hasan_Ahmad_Badar_CV.pdf"
+          target="_blank"
+          class="px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-red-950/80 hover:bg-red-900 border border-red-800 text-white flex items-center gap-1.5 transition-all shadow-sm shadow-red-950/40"
+        >
+          <Download class="w-3.5 h-3.5 text-red-400" /> Download CV
+        </a>
         <a href="#contact" class="btn-editorial text-xs !py-1.5 !px-4">Contact</a>
       </div>
 
@@ -62,11 +67,17 @@
       <a @click="isOpen = false" href="#skills" class="px-3 py-2 rounded-lg text-xs font-mono text-zinc-200 hover:bg-red-950/40">// SKILLS</a>
       <a @click="isOpen = false" href="#projects" class="px-3 py-2 rounded-lg text-xs font-mono text-zinc-200 hover:bg-red-950/40">// PROJECTS</a>
       <div class="pt-2 border-t border-brand-border flex flex-col gap-2">
-        <button @click="isOpen = false; $emit('open-game')" class="w-full py-2.5 rounded-xl bg-red-600 text-white font-bold text-xs flex items-center justify-center gap-2">
+        <a 
+          @click="isOpen = false"
+          href="assets/hasan_cv.pdf" 
+          download="Hasan_Ahmad_Badar_CV.pdf"
+          target="_blank"
+          class="w-full py-2.5 rounded-xl bg-red-600 text-white font-bold text-xs flex items-center justify-center gap-2"
+        >
+          <Download class="w-4 h-4" /> Download CV
+        </a>
+        <button @click="isOpen = false; $emit('open-game')" class="w-full py-2.5 rounded-xl bg-zinc-950 text-zinc-300 border border-brand-border text-xs font-mono flex items-center justify-center gap-2">
           <Gamepad2 class="w-4 h-4" /> Play Bootcamp Game
-        </button>
-        <button @click="isOpen = false; $emit('open-asset-modal')" class="w-full py-2.5 rounded-xl bg-zinc-950 text-zinc-300 border border-brand-border text-xs font-mono flex items-center justify-center gap-2">
-          <ImageIcon class="w-4 h-4" /> View Asset Specs
         </button>
       </div>
     </div>
@@ -75,9 +86,9 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { Menu, X, Gamepad2, Image as ImageIcon } from 'lucide-vue-next'
+import { Menu, X, Gamepad2, Download } from 'lucide-vue-next'
 
-defineEmits(['open-asset-modal', 'open-game'])
+defineEmits(['open-game'])
 
 const isScrolled = ref(false)
 const isOpen = ref(false)

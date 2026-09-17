@@ -16,30 +16,29 @@
 
         <!-- Headline with hero image above it -->
         <div>
-          <!-- Hero Banner Image placeholder (swap with a real header/banner later) -->
-          <div class="w-full h-32 sm:h-44 rounded-xl overflow-hidden mb-4 border border-brand-border relative">
+          <!-- Hero Banner Image (Wide aspect ratio) -->
+          <div class="w-full h-36 sm:h-52 rounded-xl overflow-hidden mb-4 border border-brand-border relative bg-zinc-950">
             <img 
-              v-if="avatarLoaded"
-              :src="'assets/avatar.jpg'"
-              alt="Hasan Ahmad Badar"
-              @error="avatarLoaded = false"
-              class="w-full h-full object-cover object-top opacity-80"
+              v-if="bannerLoaded"
+              :src="'assets/banner.jpg'"
+              alt="Hasan Ahmad Badar Banner"
+              @error="bannerLoaded = false"
+              class="w-full h-full object-cover object-center brightness-90 hover:scale-105 transition-transform duration-700"
             />
-            <!-- Placeholder gradient banner when no image -->
+            <!-- Fallback gradient banner when banner image not loaded -->
             <div v-else class="w-full h-full flex items-center justify-center" 
               style="background: linear-gradient(135deg, #0a0404 0%, #1a0606 40%, #2a0808 100%);">
               <div class="text-center">
-                <div class="text-xs font-mono text-zinc-600 uppercase tracking-widest">[ title_banner.jpg ]</div>
-                <div class="text-[10px] font-mono text-zinc-700 mt-1">Replace with assets/avatar.jpg or a banner photo</div>
+                <div class="text-xs font-mono text-zinc-600 uppercase tracking-widest">[ banner.jpg ]</div>
               </div>
             </div>
-            <!-- Red overlay gradient -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
-            <!-- Text overlay on image -->
-            <div class="absolute inset-0 flex items-center px-6">
+            <!-- Red overlay gradient for contrast -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+            <!-- Text overlay on banner -->
+            <div class="absolute inset-0 flex items-center px-6 pointer-events-none">
               <div>
                 <div class="text-xs font-mono text-red-500 uppercase tracking-widest mb-1">// PORTFOLIO — 2026</div>
-                <div class="text-lg sm:text-2xl font-black text-white font-heading">HASAN</div>
+                <div class="text-lg sm:text-2xl font-black text-white font-heading tracking-wide">HASAN</div>
               </div>
             </div>
           </div>
@@ -69,8 +68,16 @@
           <a href="#projects" class="btn-editorial">
             <Sparkles class="w-4 h-4" /> View Projects
           </a>
+          <a 
+            href="assets/hasan_cv.pdf" 
+            download="Hasan_Ahmad_Badar_CV.pdf"
+            target="_blank" 
+            class="px-5 py-2.5 rounded-xl bg-red-950/90 hover:bg-red-900 border border-red-700 text-white font-mono text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-red-950/40 hover:shadow-red-900/50"
+          >
+            <Download class="w-4 h-4 text-red-400" /> Download CV
+          </a>
           <button @click="$emit('open-game')" class="btn-editorial-outline">
-            <Gamepad2 class="w-4 h-4 text-red-500" /> Play Bootcamp Game
+            <Gamepad2 class="w-4 h-4 text-red-500" /> Play Game
           </button>
         </div>
 
@@ -113,27 +120,39 @@
             <span class="text-red-500">● LIVE</span>
           </div>
 
-          <!-- Avatar Section -->
+          <!-- Banner Cover with Avatar Badge -->
           <div class="relative mb-5 rounded-xl overflow-hidden h-36 bg-zinc-950 border border-brand-border flex items-center justify-center group">
-            <!-- Actual avatar image (auto-loads when placed in assets/) -->
+            <!-- Banner Cover -->
             <img 
-              v-if="avatarLoaded"
-              :src="'assets/avatar.jpg'"
-              alt="Hasan Ahmad Badar"
-              @error="avatarLoaded = false"
-              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              v-if="bannerLoaded"
+              :src="'assets/banner.jpg'"
+              alt="Hasan Ahmad Badar Banner"
+              @error="bannerLoaded = false"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 brightness-90"
             />
-            <!-- Avatar placeholder -->
-            <div v-else class="flex flex-col items-center gap-2">
-              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-red-900 to-black border-2 border-red-800 flex items-center justify-center font-black font-heading text-3xl text-white shadow-lg shadow-red-950/60">
-                H
+            <div v-else class="w-full h-full bg-gradient-to-br from-red-950/60 to-black"></div>
+
+            <!-- Gradient overlay for text readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+
+            <!-- Avatar Icon Badge + Name -->
+            <div class="absolute bottom-3 left-3 right-3 flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-red-500 shadow-lg shadow-red-950/80 bg-zinc-900 shrink-0">
+                <img 
+                  v-if="avatarLoaded"
+                  :src="'assets/avatar.jpg'"
+                  alt="Hasan"
+                  @error="avatarLoaded = false"
+                  class="w-full h-full object-cover object-top"
+                />
+                <div v-else class="w-full h-full flex items-center justify-center text-white font-black font-heading bg-red-600">
+                  H
+                </div>
               </div>
-              <div class="text-[10px] font-mono text-zinc-600">[ Place assets/avatar.jpg ]</div>
-            </div>
-            <!-- Name overlay -->
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3">
-              <div class="text-xs font-bold text-white font-heading">HASAN</div>
-              <div class="text-[10px] font-mono text-red-400">Software Engineer</div>
+              <div>
+                <div class="text-sm font-bold text-white font-heading leading-tight drop-shadow">HASAN</div>
+                <div class="text-[10px] font-mono text-red-400">Software Engineer & IoT</div>
+              </div>
             </div>
           </div>
 
@@ -160,19 +179,26 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { Sparkles, Gamepad2 } from 'lucide-vue-next'
+import { Sparkles, Gamepad2, Download } from 'lucide-vue-next'
 
 defineEmits(['open-game'])
 
 const techPills = ['Vue 3', 'Golang', 'Laravel', 'ESP32 / IoT', 'Flutter', 'Next.js', 'Computer Vision']
 
-// Check if avatar image exists
+// Check if avatar and banner images exist
 const avatarLoaded = ref(false)
+const bannerLoaded = ref(false)
+
 onMounted(() => {
-  const img = new Image()
-  img.onload = () => { avatarLoaded.value = true }
-  img.onerror = () => { avatarLoaded.value = false }
-  img.src = 'assets/avatar.jpg'
+  const avatarImg = new Image()
+  avatarImg.onload = () => { avatarLoaded.value = true }
+  avatarImg.onerror = () => { avatarLoaded.value = false }
+  avatarImg.src = 'assets/avatar.jpg'
+
+  const bannerImg = new Image()
+  bannerImg.onload = () => { bannerLoaded.value = true }
+  bannerImg.onerror = () => { bannerLoaded.value = false }
+  bannerImg.src = 'assets/banner.jpg'
 })
 
 // Typing effect

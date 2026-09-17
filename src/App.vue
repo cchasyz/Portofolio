@@ -47,7 +47,6 @@
       <AwardsHall />
       <SkillsSection />
       <ProjectsShowcase 
-        @open-asset-modal="showAssetModal = true" 
         @open-game="(gameKey) => openGameModal(gameKey || 'rocket')" 
       />
       <ContactFooter />
@@ -58,10 +57,6 @@
       :is-open="showGameModal" 
       :initial-game="selectedGame"
       @close="showGameModal = false" 
-    />
-    <AssetRequirementsModal 
-      :is-open="showAssetModal" 
-      @close="showAssetModal = false" 
     />
 
   </div>
@@ -79,10 +74,8 @@ import SkillsSection from './components/SkillsSection.vue'
 import ProjectsShowcase from './components/ProjectsShowcase.vue'
 import ContactFooter from './components/ContactFooter.vue'
 import PlayableGameModal from './components/PlayableGameModal.vue'
-import AssetRequirementsModal from './components/AssetRequirementsModal.vue'
 
 const showGameModal = ref(false)
-const showAssetModal = ref(false)
 const selectedGame = ref('rocket')
 const scrollProgress = ref(0)
 let lenis = null
